@@ -1,0 +1,45 @@
+/* payment-confirmation.component.css */
+.confirmation-container {
+    padding: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.success-icon {
+    color: #22c55e;
+    margin-right: 8px;
+}
+
+.transaction-details {
+    margin: 24px 0;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.actions button {
+    flex: 1;
+}

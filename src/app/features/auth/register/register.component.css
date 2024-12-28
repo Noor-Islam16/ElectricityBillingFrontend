@@ -1,0 +1,147 @@
+.register-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+mat-card-header {
+    border-bottom: 1px solid #eee;
+    padding: 20px 24px;
+    margin-bottom: 0 !important;
+}
+
+mat-card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+    margin: 0 !important;
+    color: #2c3e50;
+}
+
+mat-card-content {
+    padding: 24px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.form-row mat-form-field {
+    flex: 1;
+}
+
+.full-width {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0;
+}
+
+.phone-row {
+    display: flex;
+    gap: 20px;
+}
+
+.phone-row mat-form-field:first-child {
+    flex: 0 0 120px;
+}
+
+.phone-row mat-form-field:last-child {
+    flex: 1;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 16px 0;
+}
+
+.button-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 24px 0;
+}
+
+.button-row button {
+    min-width: 160px;
+    height: 45px;
+    font-size: 16px;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 16px;
+    padding: 16px;
+    border-top: 1px solid #eee;
+}
+
+.login-link a {
+    color: #3498db;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+mat-label {
+    font-size: 14px;
+}
+
+input.mat-input-element {
+    padding: 8px 0;
+}
+
+mat-icon {
+    color: #666;
+}
+
+::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0.75em;
+}
+
+@media (max-width: 768px) {
+    .register-card {
+        margin: 10px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .button-row button {
+        width: 100%;
+    }
+}

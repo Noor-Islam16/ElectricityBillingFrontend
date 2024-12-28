@@ -1,0 +1,61 @@
+<div class="dashboard-container">
+    <mat-card class="header-card">
+        <div class="header-content">
+            <h1>Welcome, {{currentUser?.customerName}}</h1>
+            <button mat-raised-button color="warn" (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+            </button>
+        </div>
+    </mat-card>
+
+    <div class="dashboard-grid">
+        <!-- Bills Section -->
+        <mat-card class="dashboard-card">
+            <mat-card-header>
+                <mat-card-title>
+                    <mat-icon>receipt</mat-icon>
+                    Bills & Payments
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="card-actions">
+                    <button mat-raised-button color="primary" [routerLink]="['/bills/view']">
+                        <mat-icon>visibility</mat-icon>
+                        View Bills
+                    </button>
+                    <button mat-raised-button color="accent" [routerLink]="['/bills/history']">
+                        <mat-icon>history</mat-icon>
+                        Bill History
+                    </button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <!-- Complaints Section -->
+        <mat-card class="dashboard-card">
+            <mat-card-header>
+                <mat-card-title>
+                    <mat-icon>support_agent</mat-icon>
+                    Complaints & Support
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="card-actions">
+                    <button mat-raised-button color="primary" routerLink="/complaints/register">
+                        <mat-icon>add_circle</mat-icon>
+                        Register Complaint
+                    </button>
+                    <button mat-raised-button color="accent" [routerLink]="['/complaints/view']">
+                        <mat-icon>list_alt</mat-icon>
+                        View Complaints
+                    </button>
+                    <button mat-raised-button routerLink="/complaints/status">
+                        <mat-icon>track_changes</mat-icon>
+                        Check Status
+                    </button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

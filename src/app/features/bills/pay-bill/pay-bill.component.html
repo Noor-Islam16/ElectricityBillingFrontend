@@ -1,0 +1,84 @@
+<!-- pay-bill.component.html -->
+<div class="payment-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <mat-icon>payment</mat-icon>
+                Bill Payment
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="bill-details" *ngIf="billDetails">
+                <h3>Bill Details</h3>
+                <div class="detail-row">
+                    <span>Bill Number:</span>
+                    <span>{{billDetails.billId}}</span>
+                </div>
+                <div class="detail-row">
+                    <span>Amount:</span>
+                    <span>₹{{billDetails.dueAmount}}</span>
+                </div>
+                <div class="detail-row">
+                    <span>Due Date:</span>
+                    <span>{{billDetails.dueDate | date}}</span>
+                </div>
+            </div>
+
+            <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" class="payment-form">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Card Number</mat-label>
+                    <input matInput formControlName="cardNumber" placeholder="1234 5678 9012 3456">
+                    <mat-error *ngIf="paymentForm.get('cardNumber')?.errors?.['required']">
+                        Card number is required
+                    </mat-error>
+                    <mat-error *ngIf="paymentForm.get('cardNumber')?.errors?.['pattern']">
+                        Please enter valid 16-digit card number
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Card Holder Name</mat-label>
+                    <input matInput formControlName="cardHolderName" placeholder="JOHN DOE">
+                    <mat-error *ngIf="paymentForm.get('cardHolderName')?.errors?.['required']">
+                        Card holder name is required
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="form-row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Expiry Date</mat-label>
+                        <input matInput formControlName="expiryDate" placeholder="MM/YY">
+                        <mat-error *ngIf="paymentForm.get('expiryDate')?.errors?.['pattern']">
+                            Use format MM/YY
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>CVV</mat-label>
+                        <input matInput type="password" formControlName="cvv" maxlength="3">
+                        <mat-error *ngIf="paymentForm.get('cvv')?.errors?.['pattern']">
+                            Enter valid CVV
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div *ngIf="error" class="error-message">
+                    <mat-icon>error</mat-icon>
+                    {{error}}
+                </div>
+
+                <div class="button-row">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="!paymentForm.valid || loading">
+                        <mat-icon>check_circle</mat-icon>
+                        {{loading ? 'Processing...' : 'Pay Now'}}
+                    </button>
+                    <button mat-raised-button type="button" routerLink="/bills/view">
+                        <mat-icon>arrow_back</mat-icon>
+                        Back
+                    </button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

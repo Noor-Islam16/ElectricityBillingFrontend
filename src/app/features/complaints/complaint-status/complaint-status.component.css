@@ -1,0 +1,61 @@
+/* complaint-status.component.css */
+.status-container {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-section {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.search-section mat-form-field {
+    flex: 1;
+}
+
+.complaint-details {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.label {
+    min-width: 120px;
+    font-weight: 500;
+}
+
+.description {
+    white-space: pre-wrap;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #dc2626;
+    margin: 16px 0;
+}
+
+.open {
+    color: #2563eb;
+}
+
+.pending {
+    color: #d97706;
+}
+
+.resolved {
+    color: #059669;
+}
+
+.closed {
+    color: #6b7280;
+}

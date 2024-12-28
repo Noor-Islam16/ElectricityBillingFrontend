@@ -1,0 +1,44 @@
+<!-- payment-confirmation.component.html -->
+<div class="confirmation-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <mat-icon class="success-icon">check_circle</mat-icon>
+                Payment Successful
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="transaction-details">
+                <div class="detail-row">
+                    <span class="label">Transaction ID:</span>
+                    <span>{{transaction?.transactionId}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Amount Paid:</span>
+                    <span>₹{{transaction?.amountPaid}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Date:</span>
+                    <span>{{transaction?.paymentDate | date:'medium'}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Payment Method:</span>
+                    <span>Card Payment</span>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button mat-raised-button color="primary" (click)="downloadReceipt()">
+                    <mat-icon>download</mat-icon>
+                    Download Receipt
+                </button>
+
+                <button mat-raised-button routerLink="/dashboard">
+                    <mat-icon>home</mat-icon>
+                    Back to Dashboard
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

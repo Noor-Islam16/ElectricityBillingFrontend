@@ -1,0 +1,65 @@
+<div class="history-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <mat-icon>history</mat-icon>
+                Bill History
+            </mat-card-title>
+            <mat-card-subtitle>Last 5 months billing history</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div *ngIf="loading" class="loading-spinner">
+                <mat-spinner diameter="40"></mat-spinner>
+            </div>
+
+            <div *ngIf="error" class="error-message">
+                <mat-icon>error</mat-icon>
+                {{ error }}
+            </div>
+
+            <div *ngIf="!loading && !error" class="table-container">
+                <table mat-table [dataSource]="billHistory" class="history-table">
+                    <!-- Bill ID Column -->
+                    <ng-container matColumnDef="billId">
+                        <th mat-header-cell *matHeaderCellDef>Bill No.</th>
+                        <td mat-cell *matCellDef="let bill">{{bill.billId}}</td>
+                    </ng-container>
+
+                    <!-- Bill Date Column -->
+                    <ng-container matColumnDef="billDate">
+                        <th mat-header-cell *matHeaderCellDef>Bill Date</th>
+                        <td mat-cell *matCellDef="let bill">{{bill.billDate | date}}</td>
+                    </ng-container>
+
+                    <!-- Due Date Column -->
+                    <ng-container matColumnDef="dueDate">
+                        <th mat-header-cell *matHeaderCellDef>Due Date</th>
+                        <td mat-cell *matCellDef="let bill">{{bill.dueDate | date}}</td>
+                    </ng-container>
+
+                    <!-- Amount Column -->
+                    <ng-container matColumnDef="amount">
+                        <th mat-header-cell *matHeaderCellDef>Amount</th>
+                        <td mat-cell *matCellDef="let bill">₹{{bill.dueAmount}}</td>
+                    </ng-container>
+
+                    <!-- Status Column -->
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef>Status</th>
+                        <td mat-cell *matCellDef="let bill" [ngClass]="bill.status.toLowerCase()">
+                            {{bill.status}}
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <div *ngIf="billHistory.length === 0" class="no-history-message">
+                    No bill history found
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
